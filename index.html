@@ -28,8 +28,9 @@ x = 300
 y = 300
 size = 50
 color = (255,0,0)
-
-
+gravity = 1
+speed = 0.1
+vector = [0,0]
 
 while 1:
   pygame.time.delay(20) #установка задержки между кадрами
@@ -52,19 +53,37 @@ while 1:
       if ev.button == 5:#вращение колесика назад
         pass 
   if keys[273]:#стрелка вверх
-    pass 
+    vector[1] -= speed
   if keys[274]:#стрелка вниз
-    pass
+    vector[1] += speed
   if keys[275]:#стрелка вправо
-    pass
+    vector[0] += speed
   if keys[276]:#стрелка влево
-    pass
+    vector[0] -= speed
   if keys[32]:#клавиша пробел
-    pass
+    vector = [0,0]
 
-  window.fill((0,0,0)) #заполнение экрана черным цветом(заодно стирается все старое что было нарисовано)
-  pygame.draw.circle(window, color, (x,y), size) #отрисовка круга с заданными параметрами
+  x += vector[0]
+  y += vector[1]
+  vector = [vector[0]*0.99, vector[1]*0.99]
+  if y<size:
+    vector[1] = -vector[1]
+    y = size
+  if x<size:
+    vector[0] = -vector[0]
+    x = size
+  if y>height-size:
+    vector[1] = -vector[1]
+    y = height-size
+  if x > width-size:
+    vector[0] = - vector[0]
+    x = width-size
+
+  window.fill((100,100,255)) #заполнение экрана черным цветом(заодно стирается все старое что было нарисовано)
+  pygame.draw.circle(window, color, (int(x),int(y)), size) #отрисовка круга с заданными параметрами
   pygame.display.update() #обновление дисплея со всеми изменениями
+
+  
 
 
 </code></pre>
