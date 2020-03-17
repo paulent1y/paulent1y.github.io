@@ -7,42 +7,23 @@
   	<script src="scripts/prism.js"></script>
     <div> jasdghop </div>
     	<pre><code class="language-python">
-# Число
-age1 = 15
-print("Возраст:", age1)
-print("Возраст больше чем 10?", age1 > 10)
+import pygame, sys
+from random import randint as r
 
-# Строка
-password_code = "16486"
-print("Пароль:", password_code)
-print("Длина пароля:", len(password_code)) 
-#команда len(d) выдаст длину переменной d, если это строка или список
+pygame.init()
 
-# Преобразование числа в строку
-# print("Age " + age) - выдаст ошибку, нельзя сложить строку с числом
-print("Возраст: " + str(age1))  
-# str - сокращение от string (строка), превращает переменную age в строку
+screenSize = width, height = 800, 600
+window = pygame.display.set_mode(screenSize)
 
-# Строку в число
-age = int(input("Сколько тебе лет? "))  
-# int - сокращение от integer - превращение в целое число
-print("Четный ли возраст?", age % 2 == 0)
 
-# Другие преобразования
-boolean_value = bool("True")  
-# Преобразование текстового "True" в логическое True 
+while 1:
+	pygame.time.delay(20)
 
-float_value = float("4.5")  
-# float - число с точкой (десятичная дробь)
+	events = pygame.event.get()
 
-# Вывести тип
-# С помощью команды type() можно узнать тип данных в скобках
-print(123, type(123)) 
-print("123", type("123"))
-print(True, type(True))
-print("True", type("True"))
-print(4.5, type(4.5))
-print("4.5", type("4.5"))
+	for ev in events:
+		print(ev)
+
 
 </code></pre>
   </body>
