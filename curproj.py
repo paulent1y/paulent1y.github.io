@@ -14,6 +14,11 @@ screenSize = width, height = 800, 600
 window = pygame.display.set_mode(screenSize)
 #создаем переменную window, которая является игровым окошком
 
+#Начальные характеристики персонажа
+x = 300
+y = 300
+size = 50
+color = (255,0,0)
 
 
 while 1:
@@ -44,6 +49,11 @@ while 1:
 		pass
 	if keys[276]:#стрелка влево
 		pass
-	if keys[273]:
+	if keys[32]:#клавиша пробел
 		pass
+
+
+	window.fill((0,0,0))
+	pygame.draw.circle(window, color, (x,y), size)
+	pygame.display.update()
 	
