@@ -35,7 +35,7 @@ while 1:
   events = pygame.event.get() #запись всех событий в текущем кадре в переменную events
   keys = pygame.key.get_pressed() #запись всех нажатых кнопок в текущем кадре в переменную keys
 
-  for ev in events: #цикл по всем событиям в переменной events
+  for ev in events: #цикл по всем событиям из переменной events
     print(ev)
     if ev.type == 12:
       sys.exit()
@@ -64,7 +64,7 @@ while 1:
 
 
   window.fill((100,100,255)) #заполнение экрана черным цветом(заодно стирается все старое что было нарисовано)
-  pygame.draw.circle(window, color, (int(x),int(y)), size) #отрисовка круга с заданными параметрами
+  pygame.draw.circle(window, color, (x,y), size) #отрисовка круга с заданными параметрами
   pygame.display.update() #обновление дисплея со всеми изменениями
 
   
