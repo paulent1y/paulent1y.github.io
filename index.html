@@ -17,7 +17,7 @@ from random import randint as r
 
 pygame.init()
 
-screenSize = width, height = 800, 600
+screenSize = width, height = 400,400
 # создаем переменную screenSize, которая является кортежем (800, 600)
 # а так же две переменных width = 800 и height = 600
 window = pygame.display.set_mode(screenSize)
@@ -28,46 +28,60 @@ x = 300
 y = 300
 size = 50
 color = (255,0,0)
-
+s = 0.1
+vector = [0,0]
 
 while 1:
-  pygame.time.delay(20) #установка задержки между кадрами
+  pygame.time.delay(10) #установка задержки между кадрами
   events = pygame.event.get() #запись всех событий в текущем кадре в переменную events
   keys = pygame.key.get_pressed() #запись всех нажатых кнопок в текущем кадре в переменную keys
-
-  for ev in events: #цикл по всем событиям из переменной events
-    print(ev)
+  # print(keys)
+  for ev in events: #цикл по всем событиям в переменной events
+    # print(ev)
     if ev.type == 12:
       sys.exit()
     if ev.type == 5: #клавиши мыши и колесико
       if ev.button == 1:#клик левой кнопкой мыши
-        pass 
+        pass
       if ev.button == 2:#клик колесом кнопкой мыши
-        pass 
+        pass
       if ev.button == 3:#клик правой кнопкой мыши
         pass 
       if ev.button == 4:#вращение колесика вперед
         pass 
       if ev.button == 5:#вращение колесика назад
         pass 
+
   if keys[273]:#стрелка вверх
-    pass
+    vector[1] += s
   if keys[274]:#стрелка вниз
-    pass
+    vector[1] -= s
   if keys[275]:#стрелка вправо
-    pass
+    vector[0] += s
   if keys[276]:#стрелка влево
-    pass
+    vector[0] -= s
   if keys[32]:#клавиша пробел
-    pass
+    vector = [0,0]
+  x += vector[0]
+  y -=vector[1]
 
-
+  if x<size:
+    vector[0]= -vector[0]
+    x = size
+  if x > width-size:
+    vector[0] = - vector[0]
+    x = width-size
+  if y < size:
+    vector[1] = -vector[1]
+    y = size
+  if y > height - size:
+    vector[1] = -vector[1]
+    y = height - size
 
   window.fill((100,100,255)) #заполнение экрана черным цветом(заодно стирается все старое что было нарисовано)
-  pygame.draw.circle(window, color, (x,y), size) #отрисовка круга с заданными параметрами
+  pygame.draw.circle(window, color, (int(x),int(y)), size) #отрисовка круга с заданными параметрами
   pygame.display.update() #обновление дисплея со всеми изменениями
 
-  
 
 
 </code></pre>
