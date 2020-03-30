@@ -1,0 +1,22 @@
+body, html {
+    margin:0px;
+    padding:0px;
+    top:0;
+    left:0;
+}
+div {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px
+}
+canvas {
+    justify-self: center;
+    margin: 0px;
+    padding: 0px;
+    top:0;
+    left:0;
+    background-color: rgba(250, 205, 56, 0.411);
+
+} 
+
