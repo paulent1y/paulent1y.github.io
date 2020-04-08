@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var img = new Image();
     img.crossOrigin = "anonymous";
     // Загружаем файл изображения
-    img.src = "https://sun9-7.userapi.com/c635101/v635101068/5366a/EnN2aIlFi_Y.jpg";
+    img.src = "http://i2.wp.com/tailytales.ru/wp-content/uploads/2019/06/pisco-0.jpg";
    
     img.onload = function() {
         drawOriginalImage().then(()=>{
