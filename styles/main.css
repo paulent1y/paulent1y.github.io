@@ -1,0 +1,22 @@
+html, body {
+	left: 0;
+	background:linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(110,109,153,0.1) 50%, rgba(110,109,153,0.2) 100%);
+	top: 0;
+	/*border: 1px solid red;*/
+	width: 100%;
+	height:100%;
+
+	padding: 0px;
+	margin: 0px;
+	display: flex;
+	justify-content: center;
+}
+
+.page {
+	padding:0 10px 0 0;
+	width:100%;
+	
+	display:flex;
+	justify-content: center;
+	/*align-items: center;*/
+}
