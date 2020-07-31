@@ -1,11 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     let COMPRESSION_MULT = 20
+    var img = new Image();
     let slider = document.getElementById("multiplier");
     slider.addEventListener('input', function () {
         // console.log(slider.value);
         COMPRESSION_MULT = slider.value;
+        sliderValue.innerHTML = COMPRESSION_MULT;
         drawReworkedImage();
     })
+    document.getElementById('loadButton').onclick = () => {
+        
+        img.crossOrigin = "Anonymous";
+        // Загружаем файл изображения
+
+        img.src = document.getElementById("urlArea").value;
+        console.log(img.src);
+        img.onload = function() {
+            drawOriginalImage().then(drawReworkedImage())
+    };
+
+
+    }
 
     let w=0;
     let y=0;
@@ -16,17 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let canvas2 = document.getElementById("canvas2");
     let ctx2 = canvas2.getContext("2d");
 
-    var img = new Image();
-    img.crossOrigin = "anonymous";
-    // Загружаем файл изображения
-    img.src = "http://i2.wp.com/tailytales.ru/wp-content/uploads/2019/06/pisco-0.jpg";
-   
-    img.onload = function() {
-        drawOriginalImage().then(()=>{
-            drawReworkedImage()
-            
-        })
-    };
+
 
 
     function drawReworkedImage(){
@@ -35,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i=0; i<COMPRESSION_MULT; i++){
                 for (let j=0; j<COMPRESSION_MULT; j++){
                     
-                    ctx2.fillStyle = calculateSquare(i*tileSizeX, j*tileSizeY, tileSizeX, tileSizeY)
-                    ctx2.fillRect(i*tileSizeX, j*tileSizeY, tileSizeX, tileSizeY)
+                    ctx2.fillStyle = calculateSquare(i*tileSizeX, j*tileSizeX, tileSizeX, tileSizeX)
+                    ctx2.fillRect(i*tileSizeX, j*tileSizeX, tileSizeX, tileSizeX)
                 }
             }
     }
