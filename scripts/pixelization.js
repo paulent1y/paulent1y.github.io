@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slider.addEventListener('input', function () {
         // console.log(slider.value);
         COMPRESSION_MULT = slider.value;
-        sliderValue.innerHTML = COMPRESSION_MULT;
+        sliderValue.innerHTML = Math.round(canvas.width / (canvas.width / COMPRESSION_MULT)) + " x " + Math.round(canvas.height / (canvas.height / COMPRESSION_MULT));
         drawReworkedImage();
     })
     document.getElementById('loadButton').onclick = () => {
