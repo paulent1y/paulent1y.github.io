@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     slider.addEventListener('input', function () {
         // console.log(slider.value);
         COMPRESSION_MULT = slider.value;
+        ctx2.fillStyle = "rgba(255,255,255,1)";
+            ctx2.fillRect(0,0,w,h);
         sliderValue.innerHTML = Math.round(canvas.width / (canvas.width / COMPRESSION_MULT)) + " x " + Math.round(canvas.height / (canvas.height / COMPRESSION_MULT));
         drawReworkedImage();
     })
@@ -37,11 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function drawReworkedImage(){
         let tileSizeX = w / COMPRESSION_MULT;
             let tileSizeY = h / COMPRESSION_MULT;
+            
             for (let i=0; i<COMPRESSION_MULT; i++){
                 for (let j=0; j<COMPRESSION_MULT; j++){
                     
                     ctx2.fillStyle = calculateSquare(i*tileSizeX, j*tileSizeX, tileSizeX, tileSizeX)
                     ctx2.fillRect(i*tileSizeX, j*tileSizeX, tileSizeX, tileSizeX)
+                    ctx2.beginPath();
+                    ctx2.fillStyle = "rgb(0,255,0)";
+                    ctx2.arc(i*tileSizeX, j*tileSizeX, 1, 0, Math.PI * 2, true);
+                    ctx2.fill();
                 }
             }
     }
